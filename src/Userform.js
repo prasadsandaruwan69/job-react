@@ -1,76 +1,66 @@
-import { Button, Grid, Input, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
+import { useState } from "react";
 
-
-const Userform = (props) => {
+const UserForm = () => {
+  const [id,setId] = useState(0);
+  const [name,setName] = useState('');
   return (
-    <Grid
-      container
-      spacing={2}
-      sx={{
-        backgroundColor: "#ffff",
-        marginBottom: "20px",
-        disply: "block",
-      }}
-    >
-      <Grid>
-        <Typography component={"h1"} xs={{ color: "#0000" }}>
-          User form
+    <Grid container sx={{ marginBottom: "20px", display: "block" }}>
+      {/* Title */}
+      <Grid item xs={12}>
+        <Typography component="h1" sx={{ color: "#000" }}>
+          User Form
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={6} sx={{ disply: "flex" }}>
+
+      {/* ID Field */}
+      <Grid item xs={12} sm={6} sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
         <Typography
-          component={"label"}
+          component="label"
           htmlFor="id"
-          xs={{
-            color: "#0000",
-            width: "100px",
-            disply: "block",
-            marginRight: "20px",
-            fontSize: "16px",
-          }}
+          sx={{ color: "#000", marginRight: "20px", fontSize: "16px", width: "100px" }}
         >
           ID
         </Typography>
-        <Input
+        <input
           type="number"
-          value={""}
-          sx={{ width: "" }}
-          name="id"
           id="id"
-          onChange={(e) => {}}
+          name="id"
+          value={id}
+          onChange={e=>setId(e.target.value)}
+          style={{ width: "400px", padding: "8px", border: "1px solid #ccc", borderRadius: "5px" }}
         />
       </Grid>
-      <Grid item xs={12} sm={6} sx={{ disply: "flex" }}>
+
+      {/* Name Field */}
+      <Grid item xs={12} sm={6} sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
         <Typography
-          component={"label"}
+          component="label"
           htmlFor="name"
-          xs={{
-            color: "#0000",
-            width: "100px",
-            disply: "block",
-            marginRight: "20px",
-            fontSize: "16px",
-          }}
+          sx={{ color: "#000", marginRight: "20px", fontSize: "16px", width: "100px" }}
         >
-          ID
+          Name
         </Typography>
-        <Input
+        <input
           type="text"
-          value={""}
-          sx={{ width: "" }}
-          name="name"
           id="name"
-          onChange={(e) => {}}
+          name="name"
+          value={name}
+          onChange={e=> setName(e.target.value)}
+          style={{ width: "400px", padding: "8px", border: "1px solid #ccc", borderRadius: "5px" }}
         />
       </Grid>
+
+      {/* Submit Button */}
       <Button
         sx={{
-          color: "#00c6e6",
-          width: "400px",
-          margin: "auto",
+          backgroundColor: "#00c6e6",
+          color: "#fff",
+          marginTop: "20px",
+          padding: "10px 20px",
           "&:hover": {
-            opacity: "0.7",
-            color: "#00c6e6",
+            opacity: 0.7,
+            backgroundColor: "#008bb5",
           },
         }}
       >
@@ -79,4 +69,5 @@ const Userform = (props) => {
     </Grid>
   );
 };
-export default Userform;
+
+export default UserForm;
