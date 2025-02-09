@@ -1,14 +1,21 @@
-import logo from './logo.svg';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <h1>Welcom to Home</h1>
-       <button className='user-button'>User</button>
-      </header>
-    </div>
+<BrowserRouter>
+<Routes>
+  <Route element={}
+</Routes>
+</BrowserRouter>
+
+    // <div className="App">
+    //   <header className="App-header">
+    //    <h1>Welcom to Home</h1>
+    //    <button className='user-button'>User</button>
+    //   </header>
+    // </div>
   );
 }
 
